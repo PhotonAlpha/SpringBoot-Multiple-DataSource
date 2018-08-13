@@ -56,7 +56,11 @@ public class RepositoryPrimaryConfig {
 	 * in 2.0.x the config has in yml or properties configed, here only need new HibernateSettings Object
 	 */
     private Map<String, Object> getVendorProperties() {
-        return jpaProperties.getHibernateProperties(new HibernateSettings());
+        System.out.println("------------");
+        Map<String, Object> hibernateConfig = jpaProperties.getHibernateProperties(new HibernateSettings());
+        hibernateConfig.put("hibernate.default_schema", "protal");
+        System.out.println(hibernateConfig);
+        return hibernateConfig; //jpaProperties.getHibernateProperties(new HibernateSettings());
     }
     
 //	@Bean
